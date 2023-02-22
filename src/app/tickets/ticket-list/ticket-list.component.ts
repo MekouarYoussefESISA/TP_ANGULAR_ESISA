@@ -22,4 +22,13 @@ export class TicketListComponent implements OnInit {
     console.log('event received from child:', hasBeenSelected);
   }
 
+  deleteTicket(ticket: Ticket) {
+    // Trouver l'index du ticket à supprimer dans la liste
+    const index = this.ticketList.indexOf(ticket);
+    if (index !== -1) {
+      // Supprimer le ticket de la liste
+      this.ticketList.splice(index, 1);
+    }
+  }
+
 }
