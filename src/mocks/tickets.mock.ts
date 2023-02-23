@@ -1,4 +1,4 @@
-import { Ticket } from '../models/ticket';
+import { enum_major, Ticket } from '../models/ticket';
 
 const dateToday: Date = new Date();
 
@@ -8,21 +8,21 @@ export const TICKETS_MOCKED: Ticket[] = [
     description: 'c\'est un humoriste',
     date: dateToday,
     student: 'Paul Mirabell',
-    major: 'Scientifique'
+    major: enum_major.SI
   },
   {
     title: 'SI5 in Paris',
     description: 'Description du voyage',
     date: dateToday,
     student: 'Anakin',
-    major: 'Scientifique'
+    major: enum_major.SI
   },
   {
     title: 'DI6 in Paris',
     description: 'Description du voyage',
     date: dateToday,
     student: 'Bernard',
-    major: 'Geo'
+    major: enum_major.GL
   },
 
 ];

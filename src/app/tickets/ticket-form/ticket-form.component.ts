@@ -8,6 +8,7 @@ import { Ticket } from '../../../models/ticket';
   templateUrl: './ticket-form.component.html',
   styleUrls: ['./ticket-form.component.scss']
 })
+
 export class TicketFormComponent implements OnInit {
 
   // Note: We are using here ReactiveForms to create our form. Be careful when you look for some documentation to
@@ -17,6 +18,7 @@ export class TicketFormComponent implements OnInit {
    * More information about Reactive Forms: https://angular.io/guide/reactive-forms
    */
   public ticketForm: FormGroup;
+  public ENUM_MAJOR: string[] = ['SI','GL','CP'];
 
   constructor(public formBuilder: FormBuilder, public ticketService: TicketService) {
     // Form creation
