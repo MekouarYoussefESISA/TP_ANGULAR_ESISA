@@ -17,6 +17,14 @@
     </select>
   </label>
   <br>
+
+  <label for="studentID">
+    Student <br>
+    <select class="input-custom" type="text" id="student" [formControlName]="'student'"> 
+      <option *ngFor="let s of studentID" [value]="s">{{s.id}}-{{s.nom}} {{s.prenom}}</option>
+    </select>
+  </label>
+  <br>
   <button type="submit" class="btn-custom" (click)="addTicket()">Create</button>
 </form>
 

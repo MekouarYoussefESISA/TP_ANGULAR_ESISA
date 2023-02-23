@@ -37,7 +37,7 @@ export class TicketService {
 
     this.ticketList.splice( this.ticketList.indexOf(ticket), 1);
     this.tickets$.next(this.ticketList);
-    console.log('Je suis dans service');
+    console.log('Jai supprime le ticket : ', ticket);
   }
 }
 
