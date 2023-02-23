@@ -23,12 +23,13 @@ export class TicketListComponent implements OnInit {
   }
 
   deleteTicket(ticket: Ticket) {
-    // Trouver l'index du ticket à supprimer dans la liste
+    this.ticketService.deleteTicket(ticket);
+    /*// Trouver l'index du ticket à supprimer dans la liste
     const index = this.ticketList.indexOf(ticket);
     if (index !== -1) {
       // Supprimer le ticket de la liste
       this.ticketList.splice(index, 1);
-    }
+    }*/
   }
 
 }
