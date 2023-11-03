@@ -22,7 +22,8 @@ export class TicketFormComponent implements OnInit {
     // Form creation
     this.ticketForm = this.formBuilder.group({
       title: [''],
-      description: ['']
+      description: [''],
+      major: ['']
     });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
@@ -35,7 +36,9 @@ export class TicketFormComponent implements OnInit {
   addTicket() {
     const ticketToCreate: Ticket = this.ticketForm.getRawValue() as Ticket;
     ticketToCreate.date = new Date();
-    ticketToCreate.​student = 'Me';
+    ticketToCreate.student = 'Me';
+    ticketToCreate.description = this.ticketForm.get('description').value;
+    ticketToCreate.major = this.ticketForm.get('major').value;
     this.ticketService.addTicket(ticketToCreate);
   }
 
