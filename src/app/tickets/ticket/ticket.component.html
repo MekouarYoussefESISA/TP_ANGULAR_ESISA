@@ -2,7 +2,12 @@
   <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->
   <h2>Titre : </h2><h3>{{ticket.title}}</h3>
   <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
-  <i class="far fa-user"></i> {{ticket.student}}
-  <!-- add major -->
-  <i class="fas fa-graduation-cap"></i> {{ticket.major}}
+  <i class="far fa-user"></i> {{ticket.student}} &nbsp;&nbsp;
+  <!-- add icon for major depends on his type SI, GE, GB ... -->
+  <i *ngIf="ticket.major === 'SI'" class="fas fa-laptop-code"></i>
+  <i *ngIf="ticket.major === 'GE'" class="fas fa-globe-europe"></i>
+  <i *ngIf="ticket.major === 'GB'" class="fas fa-dna"></i>
+  <i *ngIf="ticket.major === 'GM'" class="fas fa-cogs"></i>
+  <i *ngIf="ticket.major === 'GP'" class="fas fa-flask"></i>
+  {{ticket.major}} &nbsp;&nbsp;
 </div>
