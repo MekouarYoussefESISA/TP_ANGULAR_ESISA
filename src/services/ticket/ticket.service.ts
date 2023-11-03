@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Ticket } from '../../models/ticket';
 import { TICKETS_MOCKED } from '../../mocks/tickets.mock';
-import { BehaviorSubject } from 'rxjs/index';
+// import { BehaviorSubject } from 'rxjs/index';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class TicketService {
    * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
   public tickets$: BehaviorSubject<Ticket[]> = new BehaviorSubject(this.ticketList);
-
+  
   constructor() {
   }
 
