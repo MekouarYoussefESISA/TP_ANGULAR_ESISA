@@ -18,6 +18,9 @@ export class TicketComponent implements OnInit {
   @Output()
   ticketHasBeenSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  @Output()
+  ticketHasBeenTrashed: EventEmitter<Ticket> = new EventEmitter<Ticket>();
+
   constructor() {
   }
 
@@ -27,4 +30,9 @@ export class TicketComponent implements OnInit {
   selectTicket() {
     this.ticketHasBeenSelected.emit(true);
   }
+
+  deleteTicket() {
+    this.ticketHasBeenTrashed.emit(this.ticket);
+  }
+
 }

@@ -10,6 +10,17 @@
     <input class="input-custom" type="text" id="description" [formControlName]="'description'">
   </label>
   <br>
+
+  <label for="major">
+    major <br>
+    <select name="major_field" [formControlName]="'major'">
+      <option *ngFor="let currentIngredient of ENUM_MAJOR" [value]="currentIngredient">
+        {{currentIngredient}}
+      </option>
+    </select>
+  </label>
+
+  <br>
   <button type="submit" class="btn-custom" (click)="addTicket()">Create</button>
 </form>
 
