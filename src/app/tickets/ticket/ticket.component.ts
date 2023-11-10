@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Ticket } from '../../../models/ticket';
+import { Major } from 'src/models/major';
 
 @Component({
   selector: 'app-ticket',
@@ -20,9 +21,8 @@ export class TicketComponent implements OnInit {
 
   @Output()
   ticketHasBeenDeleted: EventEmitter<Ticket> = new EventEmitter<Ticket>();
-
-  // @Output()
   
+  major = Major;
 
   constructor() {
   }

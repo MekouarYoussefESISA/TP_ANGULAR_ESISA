@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TicketService } from '../../../services/ticket/ticket.service';
 import { Ticket } from '../../../models/ticket';
+import { Major } from '../../../models/major';
 
 @Component({
   selector: 'app-ticket-form',
@@ -17,13 +18,14 @@ export class TicketFormComponent implements OnInit {
    * More information about Reactive Forms: https://angular.io/guide/reactive-forms
    */
   public ticketForm: FormGroup;
+  public MAJOR_LIST: Major[] = [Major.SI, Major.GPE, Major.GP, Major.GM, Major.GE, Major.GB];
 
   constructor(public formBuilder: FormBuilder, public ticketService: TicketService) {
     // Form creation
     this.ticketForm = this.formBuilder.group({
       title: [''],
       description: [''],
-      major: ['']
+      major: Major
     });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation

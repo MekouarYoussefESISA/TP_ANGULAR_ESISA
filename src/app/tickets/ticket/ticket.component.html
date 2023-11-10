@@ -6,11 +6,11 @@
     <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
     <i class="far fa-user"></i> {{ticket.student}} &nbsp;&nbsp;
     <!-- add icon for major depends on his type SI, GE, GB ... -->
-    <i *ngIf="ticket.major === 'SI'" class="fas fa-laptop-code"></i>
-    <i *ngIf="ticket.major === 'GE'" class="fas fa-globe-europe"></i>
-    <i *ngIf="ticket.major === 'GB'" class="fas fa-dna"></i>
-    <i *ngIf="ticket.major === 'GM'" class="fas fa-cogs"></i>
-    <i *ngIf="ticket.major === 'GP'" class="fas fa-flask"></i>
+    <i *ngIf="ticket.major === major.SI" class="fas fa-laptop-code"></i>
+    <i *ngIf="ticket.major === major.GE" class="fas fa-globe-europe"></i>
+    <i *ngIf="ticket.major === major.GB" class="fas fa-dna"></i>
+    <i *ngIf="ticket.major === major.GM" class="fas fa-cogs"></i>
+    <i *ngIf="ticket.major === major.GP" class="fas fa-flask"></i>
     {{ticket.major}} &nbsp;&nbsp;
   </div>
   <!-- create a remove button for each ticket -->
