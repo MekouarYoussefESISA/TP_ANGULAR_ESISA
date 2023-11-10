@@ -30,4 +30,15 @@ export class TicketService {
     this.ticketList.push(ticket);
     this.tickets$.next(this.ticketList);
   }
+
+  deleteTicket(ticket: Ticket) {
+    // remove an element from ana array https://www.angularjswiki.com/angular/how-to-remove-an-element-from-array-in-angular-or-typescript/
+    this.ticketList.forEach((element,index)=>{
+      if(element==ticket) this.ticketList.splice(index,1);
+   });
+    this.tickets$.next(this.ticketList);
+
+    console.log('delete ticket', ticket);
+  }
+
 }

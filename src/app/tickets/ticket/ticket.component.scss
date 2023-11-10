@@ -8,3 +8,22 @@
   cursor: pointer;
   background: red;
 }
+
+.ticket-container {
+  position: relative;
+}
+
+
+.remove-ticket {
+  position: absolute;
+  top: 40%; /* Adjust top position as needed */
+  right: 0; /* Adjust right position as needed */
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
