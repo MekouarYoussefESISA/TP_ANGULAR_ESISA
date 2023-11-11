@@ -11,6 +11,7 @@ import { tick } from '@angular/core/testing';
 export class TicketListComponent implements OnInit {
 
   public ticketList: Ticket[] = [];
+  public displayTicketArchived: boolean = false;
 
   constructor(public ticketService: TicketService) {
     this.ticketService.tickets$.subscribe((tickets) => this.ticketList = tickets);
@@ -26,6 +27,11 @@ export class TicketListComponent implements OnInit {
 
   deleteTicket (ticket: Ticket) {
     this.ticketService.deleteTicket(ticket);
+  }
+
+  toggleArchivedTickets() {
+    this.displayTicketArchived = !this.displayTicketArchived;
+    console.log('displayTicketArchived', this.displayTicketArchived);
   }
 
 }

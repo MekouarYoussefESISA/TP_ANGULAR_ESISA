@@ -1,7 +1,16 @@
+<div class="display-archived-button">
+  <!-- add of button to show archived tickets ior hide them -->
+  <!-- (click)="toggleArchivedTickets()"> -->
+  <button class="btn btn-primary"(click)="toggleArchivedTickets()"> 
+    {{displayTicketArchived ? 'Hide archived tickets' : 'Show archived tickets'}}
+  </button>
+</div>
 <div class="ticket-list">
   <div class="ticket" *ngFor="let ticket of ticketList">
-    <app-ticket [ticket]="ticket" 
-                (ticketHasBeenSelected)="ticketHasBeenSelected($event)"
-                (ticketHasBeenDeleted)="deleteTicket($event)"></app-ticket>
+    <!-- add a *ngIf condition to show or not archived -->
+
+    <app-ticket *ngIf="!ticket.archived || displayTicketArchived" [ticket]="ticket"
+    (ticketHasBeenSelected)="ticketHasBeenSelected($event)"
+    (ticketHasBeenDeleted)="deleteTicket($event)"></app-ticket>
   </div>
 </div>
