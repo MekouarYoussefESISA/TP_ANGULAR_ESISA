@@ -4,6 +4,7 @@ import { TicketService } from '../../../services/ticket/ticket.service';
 import { Ticket } from '../../../models/ticket';
 import { Major } from '../../../models/major';
 import { Student } from 'src/models/student';
+import { StudentService } from 'src/services/student/student.service';
 import { STUDENTS_MOCKED } from 'src/mocks/students.mock';
 
 @Component({
@@ -21,9 +22,9 @@ export class TicketFormComponent implements OnInit {
    */
   public ticketForm: FormGroup;
   public MAJOR_LIST: Major[] = [Major.SI, Major.GPE, Major.GP, Major.GM, Major.GE, Major.GB];
-  public STUDENT_LIST:Student[] = STUDENTS_MOCKED;
+  public STUDENT_LIST:Student[] = [];
 
-  constructor(public formBuilder: FormBuilder, public ticketService: TicketService) {
+  constructor(public formBuilder: FormBuilder, public ticketService: TicketService, public studentService: StudentService) {
     // Form creation
     this.ticketForm = this.formBuilder.group({
       title: [''],
@@ -31,6 +32,14 @@ export class TicketFormComponent implements OnInit {
       major: Major,
       studentID: [''],
     });
+    
+    this.studentService.getStudents().subscribe(
+      (students: Student[]) => {
+        this.STUDENT_LIST = students;
+      }
+    );
+
+
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
