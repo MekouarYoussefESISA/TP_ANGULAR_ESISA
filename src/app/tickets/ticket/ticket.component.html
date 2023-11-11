@@ -4,7 +4,7 @@
     <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->
     <h3>Titre : {{ticket.title}}</h3>
     <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
-    <i class="far fa-user"></i> {{ticket.student}} &nbsp;&nbsp;
+    <i class="far fa-user"></i> {{ticket.student.id}} - {{ticket.student.nom}} {{ticket.student.prenom}} &nbsp;&nbsp;
     <!-- add icon for major depends on his type SI, GE, GB ... -->
     <i *ngIf="ticket.major === major.SI" class="fas fa-laptop-code"></i>
     <i *ngIf="ticket.major === major.GE" class="fas fa-globe-europe"></i>

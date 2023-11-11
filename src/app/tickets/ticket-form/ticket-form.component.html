@@ -11,7 +11,14 @@
   </label>
   <br>
 
-  <label for="description">
+  <label for="studentID">
+    Student : <br>
+    <select name="student-select" id="studentID" [formControlName]="'studentID'">
+      <option *ngFor="let student of STUDENT_LIST" [value]="student.id">{{student.id}} - {{student.nom}} {{student.prenom}}</option>
+    </select>
+  </label>
+  <br>
+  <label for="major">
     Filiére <br>
       <select name="major-field" id="major" [formControlName]="'major'">
         <option *ngFor="let major of MAJOR_LIST" [value]="major">{{major}}
