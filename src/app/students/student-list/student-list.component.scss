@@ -1,0 +1,15 @@
+// You can apply style directly to a component
+app-student {
+    margin: 4px;
+}
+
+.student {
+    width: 60%;
+}
+
+.student-list {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}

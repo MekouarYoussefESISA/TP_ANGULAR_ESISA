@@ -1,1 +1,7 @@
-<p>student-list works!</p>
+<div class="student-list">
+    <div class="student" *ngFor="let student of studentList">
+        <app-student [student]="student"
+        (studentHasBeenSelected)="studentHasBeenSelected($event)"
+        (studentHasBeenDeleted)="deleteStudent($event)"></app-student>
+    </div>
+</div>

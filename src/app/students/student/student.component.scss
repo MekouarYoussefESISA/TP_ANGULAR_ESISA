@@ -1,0 +1,29 @@
+@import '../../../styles/card.scss';
+
+.student {
+  width: 100%;
+}
+
+.student:hover {
+  cursor: pointer;
+  background: rgb(60, 60, 250);
+}
+
+.student-container {
+  position: relative;
+}
+
+
+.remove-student {
+  position: absolute;
+  top: 20%; /* Adjust top position as needed */
+  right: 0; /* Adjust right position as needed */
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}

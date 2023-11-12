@@ -1,1 +1,13 @@
-<p>student works!</p>
+<div class="student-container">
+
+  <div class="card student" (click)="selectStudent()">
+    <i class="far fa-user"></i> {{student.nom}}  {{student.prenom}} &nbsp;
+  </div>
+
+    <!-- create a remove button for each student -->
+    <div class="remove-student" title="Delete student" (click)="deleteStudent()">
+        <!-- trash icon -->
+        <i class="fas fa-trash-alt"></i>
+    </div>
+</div>
+
