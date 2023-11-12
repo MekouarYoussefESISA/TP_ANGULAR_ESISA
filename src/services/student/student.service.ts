@@ -30,8 +30,6 @@ export class StudentService {
     });
   }
 
-  
-
   getStudents() {
     return this.http.get<{students: Student[]}>(this.url).pipe(
         map(response => response.students)
@@ -48,10 +46,30 @@ export class StudentService {
   addStudent(student: Student) {
     this.studentList.push(student);
     this.students$.next(this.studentList);
+
+    
   }
 
   getNewId(): number {
     return this.studentList.length + 1;
+  }
+
+  
+  getStudent(id: number) {
+    return this.students$.pipe(
+      map((students) => students.find((student) => student.id === id))
+    );
+  }
+
+  updateStudent(updatedStudent: Student) {
+    console.log("before updating", this.studentList);
+    const index = this.studentList.findIndex(student => student.id === updatedStudent.id);
+    if (index !== -1) {
+      this.studentList[index] = updatedStudent;
+      this.students$.next(this.studentList);
+    }
+
+    console.log("after updating", this.studentList);
   }
 
 }

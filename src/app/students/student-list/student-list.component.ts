@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../../../services/student/student.service';
 import { Student } from '../../../models/student';
+import { Router } from '@angular/router';
 import { STUDENTS_MOCKED } from 'src/mocks/students.mock';
 
 @Component({
@@ -12,18 +13,20 @@ export class StudentListComponent implements OnInit{
 
   public studentList: Student[] = [];
   
-  constructor(public studentService: StudentService) {
+  constructor(public studentService: StudentService, private router: Router) {
     this.studentService.students$.subscribe((students) => this.studentList = students);    
   }
 
   ngOnInit(): void {
   }
 
-  studentHasBeenSelected(hasBeenSelected: boolean) {
-    console.log('event received from child:', hasBeenSelected);
+  studentHasBeenSelected(student: Student) {
+    this.router.navigate(['/students', student.id]);
   }
 
   deleteStudent(student: Student) {
     this.studentService.deleteStudent(student);
   }
+
+  
 }

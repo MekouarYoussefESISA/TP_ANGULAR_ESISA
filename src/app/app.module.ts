@@ -14,6 +14,8 @@ import { StudentListComponent } from './students/student-list/student-list.compo
 import { AppRoutingModule } from './app-routing.module';
 import { TicketPageComponent } from './tickets/ticket-page.component';
 import { StudentPageComponent } from './students/student-page.component';
+import { StudentDetailComponent } from './students/student-detail/student-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,15 @@ import { StudentPageComponent } from './students/student-page.component';
     StudentFormComponent,
     StudentListComponent, 
     TicketPageComponent,
-    StudentPageComponent // All the components needs to be declared
+    StudentPageComponent,
+    StudentDetailComponent// All the components needs to be declared
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule, // Import all dependencies
-    HttpClientModule, AppRoutingModule
+    ReactiveFormsModule, 
+    HttpClientModule, 
+    AppRoutingModule, 
+    FormsModule // Import all dependencies
   ],
   providers: [TicketService, StudentService], // All the services need to be provided
   bootstrap: [AppComponent]
