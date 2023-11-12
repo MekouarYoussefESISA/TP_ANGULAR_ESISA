@@ -13,6 +13,7 @@ import { StudentFormComponent } from './students/student-form/student-form.compo
 import { StudentListComponent } from './students/student-list/student-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TicketPageComponent } from './tickets/ticket-page.component';
+import { StudentPageComponent } from './students/student-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TicketPageComponent } from './tickets/ticket-page.component';
     StudentComponent,
     StudentFormComponent,
     StudentListComponent, 
-    TicketPageComponent// All the components needs to be declared
+    TicketPageComponent,
+    StudentPageComponent // All the components needs to be declared
   ],
   imports: [
     BrowserModule,

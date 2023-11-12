@@ -1,1 +1,24 @@
-<p>student-form works!</p>
+<h3>Create a new ticket</h3>
+<form class="student-form" [formGroup]="studentForm">
+  <label for="nom">
+    Nom <br>
+    <input class="input-custom" type="text" id="nom" [formControlName]="'nom'">
+  </label>
+  <br>
+
+  <label for="prenom">
+    Prenom <br>
+    <input class="input-custom" type="text" id="prenom" [formControlName]="'prenom'">
+  </label>
+  <br>
+
+  <label for="mail">
+    E-mail <br>
+    <input class="input-custom" type="email" id="mail" [formControlName]="'mail'">
+  </label>
+  <br>
+  <button type="submit" class="btn-custom" (click)="addStudent()">Create</button>
+</form>
+
+<!-- Uncomment below to see your form structure and how it changes-->
+<!--<br><br>{{ticketForm.getRawValue() | json}}-->

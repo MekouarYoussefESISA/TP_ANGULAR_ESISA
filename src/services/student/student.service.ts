@@ -45,4 +45,13 @@ export class StudentService {
     console.log(this.studentList);
   }
 
+  addStudent(student: Student) {
+    this.studentList.push(student);
+    this.students$.next(this.studentList);
+  }
+
+  getNewId(): number {
+    return this.studentList.length + 1;
+  }
+
 }

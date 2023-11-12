@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { TicketService } from '../../../services/ticket/ticket.service';
 import { Ticket } from '../../../models/ticket';
 import { Major } from '../../../models/major';
-import { Student } from 'src/models/student';
-import { StudentService } from 'src/services/student/student.service';
-import { STUDENTS_MOCKED } from 'src/mocks/students.mock';
+import { Student } from '../../../models/student';
+import { StudentService } from '../../../services/student/student.service';
+import { STUDENTS_MOCKED } from '../../../mocks/students.mock';
 
 @Component({
   selector: 'app-ticket-form',

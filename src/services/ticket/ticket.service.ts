@@ -41,8 +41,6 @@ export class TicketService {
       }
    });
     this.tickets$.next(this.ticketList);
-
-    console.log('delete ticket', ticket);
   }
 
 }

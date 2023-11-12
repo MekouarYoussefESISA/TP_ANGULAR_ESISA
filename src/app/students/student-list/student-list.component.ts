@@ -13,10 +13,7 @@ export class StudentListComponent implements OnInit{
   public studentList: Student[] = [];
   
   constructor(public studentService: StudentService) {
-    this.studentService.students$.subscribe((students) => this.studentList = students);
-
-    console.log('studentList:', this.studentList);
-    
+    this.studentService.students$.subscribe((students) => this.studentList = students);    
   }
 
   ngOnInit(): void {
