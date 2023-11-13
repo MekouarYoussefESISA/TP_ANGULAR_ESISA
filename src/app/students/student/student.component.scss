@@ -1,7 +1,8 @@
-@import '../../../styles/card.scss';
+// @import '../../../styles/card.scss';
 
 .student {
   width: 100%;
+  background:white;
 }
 
 .student:hover {
@@ -13,11 +14,30 @@
   position: relative;
 }
 
+tr {
+  padding: 10px;
+  width: auto;
+  height: 50px;
+  // center the content
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+td {
+  // padding: 10px;
+  // width: auto;
+  // height: 50px;
+  // center the content
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .remove-student {
-  position: absolute;
-  top: 20%; /* Adjust top position as needed */
-  right: 0; /* Adjust right position as needed */
+  // position: absolute;
+  // top: 20%; /* Adjust top position as needed */
+  // right: 0; /* Adjust right position as needed */
   cursor: pointer;
   width: 50px;
   height: 50px;

@@ -1,10 +1,40 @@
+<!-- <div class="student-container">
+  <ul class="list">
+    <li class="list-item">
+      <div>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/488320/profile/profile-80.jpg" class="list-item-image">
+      </div>
+      <div class="list-item-content" (click)="selectStudent()">
+        <h4>Hitesh Kumar</h4>
+        <p>@hk-skit</p>
+      </div>
+    </li>
+    <li ng-repeat="user in ctrl.users" class="list-item">
+      <div>
+        <img src="{{user.src}}"  class="list-item-image">
+      </div>
+      <div class="list-item-content">
+        <h4>{{user.name}}</h4>
+        <p>{{user.login}}</p>
+      </div>
+    </li>
+  </ul>
+</div> -->
+
 <div class="student-container">
 
   <div class="card student" (click)="selectStudent()">
-    <i class="far fa-user"></i> {{student.nom}}  {{student.prenom}} &nbsp;
-  </div>
-    <div class="remove-student" title="Delete student" (click)="deleteStudent()">
+
+    <tr>
+      <td><i class="far fa-user"></i></td>
+      <td>{{student.nom}}</td>
+      <td>{{student.prenom}}</td>
+      <td>{{student.mail}}</td>
+      <td><div class="remove-student" title="Delete student" (click)="deleteStudent()">
         <i class="fas fa-trash-alt"></i>
-    </div>
+    </div></td>
+    </tr>
+  </div>
+    
 </div>
 

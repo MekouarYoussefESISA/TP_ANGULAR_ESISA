@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const STUDENTS_MOCKED = [{\n  id: 1,\n  nom: 'Delmotte',\n  prenom: 'Jean-Yves'\n}, {\n  id: 2,\n  nom: 'Pourtier',\n  prenom: 'Rémi'\n}];","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

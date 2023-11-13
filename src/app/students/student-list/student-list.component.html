@@ -1,7 +1,11 @@
 <div class="student-list">
-    <div class="student" *ngFor="let student of studentList">
-        <app-student [student]="student"
-        (studentHasBeenSelected)="studentHasBeenSelected($event)"
-        (studentHasBeenDeleted)="deleteStudent($event)"></app-student>
-    </div>
+    <ul class="list">
+        <li class="list-item">
+            <div class="student" *ngFor="let student of studentList">
+                <app-student [student]="student"
+                (studentHasBeenSelected)="studentHasBeenSelected($event)"
+                (studentHasBeenDeleted)="deleteStudent($event)"></app-student>
+            </div>
+        </li>
+    </ul>
 </div>
