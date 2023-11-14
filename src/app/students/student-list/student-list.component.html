@@ -1,4 +1,4 @@
-<div class="student-list">
+<!-- <div class="student-list">
     <ul class="list">
         <li class="list-item">
             <div class="student" *ngFor="let student of studentList">
@@ -8,4 +8,50 @@
             </div>
         </li>
     </ul>
+</div> -->
+
+<!-- <div class="student-list">
+    <div class="list-head">
+        <div class="row">
+            <div class="column" id="img"> </div>
+            <div class="column" id="nom">Nom</div>
+            <div class="column" id="prenom">Prenom</div>
+            <div class="column" id="mail">Email</div>
+            <div class="column" id="action"> </div>
+        </div>
+    </div>
+                  
+    <div class="list" *ngFor="let student of studentList">
+        <app-student [student]="student"
+        (studentHasBeenSelected)="studentHasBeenSelected($event)"
+        (studentHasBeenDeleted)="deleteStudent($event)"></app-student>
+    </div>
+</div> -->
+
+<!-- <div class="header">
+    <div class="header-item">Photo</div>
+    <div class="header-item">Nom</div>
+    <div class="header-item">Prénom</div>
+    <div class="header-item">Mail</div>
+    <div class="header-item">Action</div>
+</div> -->
+
+
+
+<div class="student-list">
+    <div class="head">
+        <div class="column-head" id="pic">
+          <!-- <img src="lien_de_l_image" alt="Image utilisateur"> -->
+          <!-- <i class="far fa-user"></i> -->
+        </div>
+        <div class="column-head" id="nom">Nom</div>
+        <div class="column-head" id="prenom">Prenom</div>
+        <div class="column-head" id="mail">Email</div>
+        <div class="column-head" id="action"></div>
+    </div>
+    <div class="list" *ngFor="let student of studentList">
+        <app-student [student]="student"
+        (studentHasBeenSelected)="studentHasBeenSelected($event)"
+        (studentHasBeenDeleted)="deleteStudent($event)"></app-student>
+    </div>
 </div>

@@ -1,49 +1,68 @@
-// @import '../../../styles/card.scss';
+// tr {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: white;
+// }
+
+// tr:hover {
+//   cursor: pointer;
+//   background: rgb(50, 150, 255);
+// }
+
+// td {
+//   margin-left: 50px;
+//   margin-right: 50px;
+//   padding: 10px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// //afficher les emails comme des hyperliens cliquables
+// .mail {
+//   text-decoration: none;
+//   color: green;
+// }
+
+// .remove-student {
+//   cursor: pointer;
+//   width: 50px;
+//   height: 50px;
+//   border-radius: 50%;
+//   background-color: aliceblue;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center; 
+// }
+
 
 .student {
-  width: 100%;
-  background:white;
+  display: flex;
+  background-color: white;
 }
 
 .student:hover {
   cursor: pointer;
-  background: rgb(60, 60, 250);
+  background: rgb(50, 150, 255);
 }
 
-.student-container {
-  position: relative;
+
+#prenom, #nom, #remove-student{
+  width: 15%;
+}
+#mail{
+  width: 40%;
 }
 
-tr {
-  padding: 10px;
-  width: auto;
-  height: 50px;
-  // center the content
+#pic{
+  width: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-td {
-  // padding: 10px;
-  // width: auto;
-  // height: 50px;
-  // center the content
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.remove-student {
-  // position: absolute;
-  // top: 20%; /* Adjust top position as needed */
-  // right: 0; /* Adjust right position as needed */
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: aliceblue;
-  display: flex;
-  justify-content: center;
-  align-items: center; 
+.column {
+  // border-left: 0.5px solid black;
+  padding: 20px;
 }

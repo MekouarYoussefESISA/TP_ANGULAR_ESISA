@@ -1,37 +1,36 @@
-// // You can apply style directly to a component
-// app-student {
-//     margin: 4px;
-// }
-
-// .student {
-//     width: 100%;
-// }
-
-// .student-list {
-// display: flex;
-// flex-direction: column;
-// align-items: center;
-// justify-content: center;
-// }
-
-$color: #555;
-$main-background: #5B9EED;
-$white: #fff;
-$white-two: #aaa;
-body {
-  color: #555;
-  background-color: #5B9EED;
-  font-family: sans-serif;
+.head {
+  display: flex;
+  background-color: white;
 }
 
-.student-list {
-  max-width: 400px;
-  margin: 50px auto;
+
+#prenom, #nom, #action{
+  width: 15%;
+}
+#mail{
+  width: 40%;
 }
 
-.list {
-//   background: $white;
-  border-radius: 2px;
-  list-style: none;
-  padding: 10px 20px;
+#pic{
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column-head {
+  // border-left: 0.5px solid black;
+  padding: 20px;
+  font-style: italic;
+}
+
+.student-list
+{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: auto;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+  margin-top: 50px ;
+
 }
