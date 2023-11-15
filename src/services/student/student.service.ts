@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Student } from 'src/models/student';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -24,16 +24,17 @@ export class StudentService {
   public students$: BehaviorSubject<Student[]> = new BehaviorSubject(this.studentList);
   
   constructor(private http: HttpClient) {
-    this.getStudents().subscribe(students => {
-      this.studentList = students;
-      this.students$.next(this.studentList);
-    });
+    // this.getStudents().subscribe(students => {
+    //   this.studentList = students;
+    //   this.students$.next(this.studentList);
+    // });
   }
 
-  getStudents() {
-    return this.http.get<{students: Student[]}>(this.url).pipe(
-        map(response => response.students)
-    );
+  getStudents() : Observable<{students: Student[]}> {
+    // return this.http.get<{students: Student[]}>(this.url).pipe(
+    //     map(response => response.students)
+    // );
+    return this.http.get<{students: Student[]}>(this.url);
   }
 
   deleteStudent(student: Student) {

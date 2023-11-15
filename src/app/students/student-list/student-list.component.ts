@@ -14,7 +14,10 @@ export class StudentListComponent implements OnInit{
   public studentList: Student[] = [];
   
   constructor(public studentService: StudentService, private router: Router) {
-    this.studentService.students$.subscribe((students) => this.studentList = students);    
+    this.studentService.getStudents().subscribe((response) =>{
+      this.studentList = response.students;
+    }
+    );   
   }
 
   ngOnInit(): void {

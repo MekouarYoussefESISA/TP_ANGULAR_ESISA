@@ -33,7 +33,11 @@ export class TicketFormComponent implements OnInit {
       studentID: [''],
     });
     
-    this.studentService.students$.subscribe((students) => this.STUDENT_LIST = students);
+    // this.studentService.students$.subscribe((students) => this.STUDENT_LIST = students);
+    this.studentService.getStudents().subscribe((response) =>{
+      this.STUDENT_LIST = response.students;
+      // console.log('this.STUDENT_LIST', this.STUDENT_LIST);
+    })
 
 
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
