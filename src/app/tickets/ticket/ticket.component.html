@@ -4,7 +4,7 @@
     <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->
     <h3>Titre : {{ticket.title}}</h3>
     <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
-    <i class="far fa-user"></i> {{ticket.student?.id}} - {{ticket.student?.nom}} {{ticket.student?.prenom}} &nbsp;&nbsp;
+    <i class="far fa-user"></i>  {{student?.nom}} {{student?.prenom}} &nbsp;&nbsp;
     <!-- add icon for major depends on his type SI, GE, GB ... -->
     <i *ngIf="ticket.major === major.SI" class="fas fa-laptop-code"></i>
     <i *ngIf="ticket.major === major.GE" class="fas fa-globe-europe"></i>
@@ -14,13 +14,10 @@
     {{ticket.major}} &nbsp;&nbsp;
   </div>
   <!-- create a remove button for each ticket -->
-  <div class="remove-ticket" title="Archive ticket" (click)="deleteTicket()">
-    <!-- trash icon -->
-    <!-- <i class="fas fa-trash-alt"></i> -->
-    <!-- archivage icon -->
+  <div *ngIf="ticket.archived" class="archive-ticket" title="Unarchive ticket" (click)="archiveTicket()">
+    <i class="fas fa-box-open"></i>
+  </div>
+  <div *ngIf="!ticket.archived"class="archive-ticket" title="Archive ticket" (click)="archiveTicket()">
     <i class="fas fa-archive"></i>
   </div>
-
-  
-
 </div>

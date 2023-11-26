@@ -3,23 +3,23 @@
 </div> -->
 
 <div *ngIf="student" class="student-details">
-  <h2>{{ student.name }} Details</h2>
+  <h2>Details</h2>
   <table>
     <tr>
       <td class="detail-label">ID:</td>
-      <td>{{ student.id }}</td>
+      <td>{{ student?.id }}</td>
     </tr>
     <tr>
       <td class="detail-label">Nom:</td>
-      <td>{{ student.nom }}</td>
+      <td>{{ student?.nom }}</td>
     </tr>
     <tr>
       <td class="detail-label">Prenom:</td>
-      <td>{{ student.prenom }}</td>
+      <td>{{ student?.prenom }}</td>
     </tr>
     <tr>
       <td class="detail-label">Email:</td>
-      <td>{{ student.mail }}</td>
+      <td>{{ student?.mail }}</td>
     </tr>
     <tr>
       <td class="detail-label">Notes:</td>

@@ -14,13 +14,22 @@ export class StudentListComponent implements OnInit{
   public studentList: Student[] = [];
   
   constructor(public studentService: StudentService, private router: Router) {
-    this.studentService.getStudents().subscribe((response) =>{
-      this.studentList = response.students;
-    }
-    );   
+    // this.studentService.getStudents().subscribe((response) =>{
+    //   this.studentList = response;
+    // }
+    // );
   }
 
   ngOnInit(): void {
+    console.log('ngOnInit');
+    this.studentService.getStudents().subscribe(
+      (response) => {
+        this.studentList = response;
+      },
+      (error) => {
+        console.error('Error fetching students:', error);
+      }
+    );
   }
 
   studentHasBeenSelected(student: Student) {

@@ -11,24 +11,24 @@ export const TICKETS_MOCKED: Ticket[] = [
     title: 'SI4 in Milan',
     description: '',
     date: dateToday,
-    student: studentList[0],
+    studentId: 0,
     major: Major.GE,
     archived: false
 
   },
   {
     title: 'SI5 in Paris',
-    description: 'Description du voyage',
+    description: '',
     date: dateToday,
-    student: studentList[1],
+    studentId: 1,
     major: Major.GE,
     archived: false
   },
   {
     title: 'SI6 in Madrid',
-    description: 'Description du voyage',
+    description: '',
     date: dateToday,
-    student: studentList[0],
+    studentId: 0,
     major: Major.GP,
     archived: true
   }

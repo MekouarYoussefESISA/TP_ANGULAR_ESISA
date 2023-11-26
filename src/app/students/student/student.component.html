@@ -1,58 +1,12 @@
-<!-- <div class="student-container">
-  <ul class="list">
-    <li class="list-item">
-      <div>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/488320/profile/profile-80.jpg" class="list-item-image">
-      </div>
-      <div class="list-item-content" (click)="selectStudent()">
-        <h4>Hitesh Kumar</h4>
-        <p>@hk-skit</p>
-      </div>
-    </li>
-    <li ng-repeat="user in ctrl.users" class="list-item">
-      <div>
-        <img src="{{user.src}}"  class="list-item-image">
-      </div>
-      <div class="list-item-content">
-        <h4>{{user.name}}</h4>
-        <p>{{user.login}}</p>
-      </div>
-    </li>
-  </ul>
-</div> -->
-
-
 <div class="student" (click)="selectStudent()">
   <div class="column" id="pic">
       <!-- <img src="lien_de_l_image" alt="Image utilisateur"> -->
       <i class="far fa-user"></i>
     </div>
     <div class="column" id="nom">{{student.nom}}</div>
-    <div class="column" id="prenom">{{student.prenom}}</div>
-    <div class="column" id="mail"><a href="mailto:{{student.mail}}" (click)="$event.stopPropagation()">{{student.mail}}</a></div>
-    <div class="column" id="remove-student" title="Delete student" (click)="deleteStudent()">
+    <div class="column" id="prenom">{{student?.prenom}}</div>
+    <div class="column" id="mail"><a href="mailto:{{student?.mail}}" (click)="$event.stopPropagation()">{{student.mail}}</a></div>
+    <div class="column" id="remove-student" title="Delete student" (click)="deleteStudent(); $event.stopPropagation()">
       <i class="fas fa-trash-alt"></i>
   </div>
 </div>
-
-<!-- <div class="card student" (click)="selectStudent()">
-  <div class="row">
-    <div class="column">
-      <i class="far fa-user"></i>
-    </div>
-    <div class="column">
-      {{student.nom}}
-    </div>
-    <div class="column">
-      {{student.prenom}}
-    </div>
-    <div class="column">
-      <a href="mailto:{{student.mail}}" (click)="$event.stopPropagation()"></a>
-    </div>
-    <div class="column">
-      
-    </div>
-    
-  </div>
-</div> -->
-

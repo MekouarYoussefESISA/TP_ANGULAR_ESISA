@@ -17,7 +17,8 @@ export class StudentFormComponent implements OnInit{
     this.studentForm = this.formBuilder.group({
       nom: [''],
       prenom: [''],
-      mail: ['']
+      mail: [''],
+      notes: [' ']
     });
   }
 
@@ -25,16 +26,13 @@ export class StudentFormComponent implements OnInit{
   }
 
   addStudent() {
+
     const studentToCreate: Student = this.studentForm.getRawValue() as Student;
-    // get incremental id
-    studentToCreate.id = this.studentService.getNewId();
+    studentToCreate.notes = " ";
+    this.studentService.createStudent(studentToCreate).subscribe();
 
-
-
-    studentToCreate.nom = this.studentForm.get('nom').value;
-    studentToCreate.prenom = this.studentForm.get('prenom').value;
-    studentToCreate.mail = this.studentForm.get('mail').value;
-    this.studentService.addStudent(studentToCreate);
+    // this.studentService.addStudent(createdStudent);
+    this.studentForm.reset();
   }
 
 }

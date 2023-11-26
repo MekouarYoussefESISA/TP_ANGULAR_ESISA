@@ -30,13 +30,11 @@ export class TicketFormComponent implements OnInit {
       title: [''],
       description: [''],
       major: Major,
-      studentID: [''],
+      studentId: [''],
     });
     
-    // this.studentService.students$.subscribe((students) => this.STUDENT_LIST = students);
     this.studentService.getStudents().subscribe((response) =>{
-      this.STUDENT_LIST = response.students;
-      // console.log('this.STUDENT_LIST', this.STUDENT_LIST);
+      this.STUDENT_LIST = response;
     })
 
 
@@ -51,25 +49,15 @@ export class TicketFormComponent implements OnInit {
   addTicket() {
     const ticketToCreate: Ticket = this.ticketForm.getRawValue() as Ticket;
     ticketToCreate.date = new Date();
-    const selectedStudentId = Number(this.ticketForm.get('studentID').value);
-
-    if (selectedStudentId) {
-      // const selectedStudent = this.STUDENT_LIST.find(student => student.id === selectedStudentId);
-      this.STUDENT_LIST.forEach(student => {
-        if (student.id === selectedStudentId) {
-
-          console.log('selectedStudent', student);
-
-          ticketToCreate.student = student;
-        }
+    const selectedStudentId = Number(this.ticketForm.get('studentId').value);
+    ticketToCreate.studentId = selectedStudentId;
+    ticketToCreate.archived = false;
+    this.ticketService.createTicket(ticketToCreate).subscribe(
+      (error) => {
+        console.error('Error creating ticket:', error);
       }
-      );
-    }
-
-
-    ticketToCreate.description = this.ticketForm.get('description').value;
-    ticketToCreate.major = this.ticketForm.get('major').value;
-    this.ticketService.addTicket(ticketToCreate);
+    );
+    this.ticketForm.reset();
   }
 
 }

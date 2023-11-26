@@ -7,10 +7,11 @@
 </div>
 <div class="ticket-list">
   <div class="ticket" *ngFor="let ticket of ticketList">
-    <!-- add a *ngIf condition to show or not archived -->
-
+    <!-- get student with ticket.studentId -->
+    
     <app-ticket *ngIf="!ticket.archived || displayTicketArchived" [ticket]="ticket"
+    [student]="getStudentById(ticket.studentId)"
     (ticketHasBeenSelected)="ticketHasBeenSelected($event)"
-    (ticketHasBeenDeleted)="deleteTicket($event)"></app-ticket>
+    (ticketHasBeenArchived)="archiveTicket($event)"></app-ticket>
   </div>
 </div>
