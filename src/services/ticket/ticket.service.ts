@@ -55,7 +55,14 @@ export class TicketService {
         // this.ticketList.find(ticket => ticket.id === ticketToUpdate.id).archived = !ticketToUpdate.archived;
         this.tickets$.next(this.ticketList);
       })
-    ).subscribe();
+    ).subscribe(
+      (response) => {
+        console.log('Ticket archived:', response);
+      },
+      (error) => {
+        console.error('Error archiving ticket:', error);
+      }
+    );
   }
 
   getTickets() : Observable<Ticket[]> {

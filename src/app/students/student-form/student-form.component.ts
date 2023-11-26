@@ -30,30 +30,8 @@ export class StudentFormComponent implements OnInit{
     const studentToCreate: Student = this.studentForm.getRawValue() as Student;
     studentToCreate.notes = " ";
     // this.studentService.addStudent(studentToCreate);
-    this.studentService.createStudent(studentToCreate).subscribe(
-      (response) => {
-        console.log('Student created:', response);
-      },
-      (error) => {
-        console.error('Error creating student:', error);
-      }
-    );
+    this.studentService.createStudent(studentToCreate);
     this.studentForm.reset();
   }
-
-  // addStudent() {
-
-    
-  //   const studentToCreate: Student = this.studentForm.getRawValue() as Student;
-  //   // get incremental id
-    
-  //   studentToCreate.id = 0;
-  //   studentToCreate.nom = this.studentForm.get('nom').value;
-  //   studentToCreate.prenom = this.studentForm.get('prenom').value;
-  //   studentToCreate.mail = this.studentForm.get('mail').value;
-
-  //   console.log("added student : ", this.studentForm.getRawValue());
-  //   this.studentService.addStudent(studentToCreate);
-  // }
 
 }

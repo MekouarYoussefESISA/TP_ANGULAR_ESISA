@@ -33,23 +33,37 @@ export class StudentService {
   deleteStudent(student: Student) {
     // delete all the tickets of the student
     this.ticketService.deleteTicketsByStudentId(student.id);
-    return this.http.delete(`${this.url}/${student.id}`)
+    this.http.delete(`${this.url}/${student.id}`)
     .pipe(
       tap (() => {
-        this.studentList = this.studentList.filter((s) => s.id !== student.id);
+        // this.studentList = this.studentList.filter((s) => s.id !== student.id);
         this.students$.next(this.studentList);
       })
+    ).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
     );
   }
 
 
-  createStudent(student: Student): Observable<Student> {
-    return this.http.post<Student>(this.url, student)
+  createStudent(student: Student) {
+    this.http.post<Student>(this.url, student)
     .pipe(
       tap (() => {
-        this.studentList.push(student);
+        // this.studentList.push(student);
         this.students$.next(this.studentList);
       })
+    ).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
     );
   }
   

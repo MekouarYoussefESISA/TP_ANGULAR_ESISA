@@ -31,7 +31,7 @@ export class StudentListComponent implements OnInit{
   }
 
   deleteStudent(student: Student) {
-    this.studentService.deleteStudent(student).subscribe();
+    this.studentService.deleteStudent(student);
   }
 
   
