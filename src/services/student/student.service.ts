@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Student } from 'src/models/student';
 import { HttpClient } from '@angular/common/http';
 import { TicketService } from '../ticket/ticket.service';
@@ -33,16 +33,24 @@ export class StudentService {
   deleteStudent(student: Student) {
     // delete all the tickets of the student
     this.ticketService.deleteTicketsByStudentId(student.id);
-    this.http.delete(`${this.url}/${student.id}`).subscribe();
+    return this.http.delete(`${this.url}/${student.id}`)
+    .pipe(
+      tap (() => {
+        this.studentList = this.studentList.filter((s) => s.id !== student.id);
+        this.students$.next(this.studentList);
+      })
+    );
   }
 
-  // addStudent(student: Student) {
-  //   this.studentList.push(student);
-  //   this.students$.next(this.studentList);
-  // }
 
   createStudent(student: Student): Observable<Student> {
-    return this.http.post<Student>(this.url, student);
+    return this.http.post<Student>(this.url, student)
+    .pipe(
+      tap (() => {
+        this.studentList.push(student);
+        this.students$.next(this.studentList);
+      })
+    );
   }
   
   getStudent(id: number) {

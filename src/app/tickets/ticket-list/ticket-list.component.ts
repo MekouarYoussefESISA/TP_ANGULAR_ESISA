@@ -16,23 +16,15 @@ export class TicketListComponent implements OnInit {
   public studentList: Student[] = [];
   public displayTicketArchived: boolean = false;
 
-  constructor(public ticketService: TicketService, public studentService: StudentService) {
-    // this.ticketService.getTickets().subscribe((response) =>{
-    //   this.ticketList = response;
-    // }
-    // ); 
-    // this.studentService.getStudents().subscribe((response) =>{
-    //   this.studentList = response;
-    // }
-    // );
-  }
+  constructor(public ticketService: TicketService, public studentService: StudentService) { }
 
   ngOnInit() {
-    console.log('ngOnInit');
-    this.ticketService.getTickets().subscribe((response) =>{
-      this.ticketList = response;
-    }
-    ); 
+    
+    this.ticketService.tickets$.subscribe(() => {
+      this.ticketService.getTickets().subscribe((response) =>{
+        this.ticketList = response;
+      });
+    });
   }
 
   // ngOnChanges() {

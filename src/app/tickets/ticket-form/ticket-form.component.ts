@@ -52,11 +52,8 @@ export class TicketFormComponent implements OnInit {
     const selectedStudentId = Number(this.ticketForm.get('studentId').value);
     ticketToCreate.studentId = selectedStudentId;
     ticketToCreate.archived = false;
-    this.ticketService.createTicket(ticketToCreate).subscribe(
-      (error) => {
-        console.error('Error creating ticket:', error);
-      }
-    );
+
+    this.ticketService.createTicket(ticketToCreate);
     this.ticketForm.reset();
   }
 

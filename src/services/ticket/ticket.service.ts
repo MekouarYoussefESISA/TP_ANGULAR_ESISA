@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Ticket } from '../../models/ticket';
 import { TICKETS_MOCKED } from '../../mocks/tickets.mock';
 // import { BehaviorSubject } from 'rxjs/index';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -25,37 +25,37 @@ export class TicketService {
   public tickets$: BehaviorSubject<Ticket[]> = new BehaviorSubject(this.ticketList);
   
   constructor(private http: HttpClient) {
-    
   }
 
-  // addTicket(ticket: Ticket) {
-  //   // You need here to update the list of ticket and then update our observable (Subject) with the new list
-  //   // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
 
-  //   let cleanTicket : Ticket = {};
-  //   cleanTicket.id = ticket.id;
-  //   cleanTicket.title = ticket.title;
-  //   cleanTicket.description = ticket.description;
-  //   cleanTicket.date = ticket.date;
-  //   cleanTicket.studentId = ticket.studentId;
-  //   cleanTicket.major = ticket.major;
-  //   cleanTicket.archived = ticket.archived;
-
-    
-  //   console.log('ticketList before:', this.ticketList);
-  //   this.ticketList.push(cleanTicket);
-  //   this.tickets$.next(this.ticketList);
-  //   console.log('ticketList after:', this.ticketList);
-  // }
-
-  createTicket(ticket: Ticket): Observable<Ticket> {
-    return this.http.post<Ticket>(this.url, ticket);
+  createTicket(ticket: Ticket): void {
+    this.http.post<Ticket>(this.url, ticket)
+    .pipe (
+      tap (()=> {
+        // this.ticketList.push(ticket);
+        this.tickets$.next(this.ticketList);
+      })
+    ).subscribe(
+      (response) => {
+        console.log('Ticket created:', response);
+      },
+      (error) => {
+        console.error('Error creating ticket:', error);
+      }
+    );
   }
 
-  archiveTicket(ticket: Ticket) {
+  archiveTicket(ticketToUpdate: Ticket) {
     // archive ticket
-    ticket.archived != ticket.archived;
-    this.http.put(`${this.url}/${ticket.id}`, ticket).subscribe();
+    // ticket.archived != ticket.archived;
+    return this.http.put(`${this.url}/${ticketToUpdate.id}`, ticketToUpdate)
+    .pipe (
+      tap (()=> {
+        // console.log('ticket to update', ticketToUpdate);
+        // this.ticketList.find(ticket => ticket.id === ticketToUpdate.id).archived = !ticketToUpdate.archived;
+        this.tickets$.next(this.ticketList);
+      })
+    ).subscribe();
   }
 
   getTickets() : Observable<Ticket[]> {
