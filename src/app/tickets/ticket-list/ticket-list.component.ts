@@ -27,6 +27,9 @@ export class TicketListComponent implements OnInit {
     });
   }
 
+  // ngOnChanges() {
+  //   console.log('ngOnChanges');
+  // }
 
   ticketHasBeenSelected(hasBeenSelected: boolean) {
     console.log('event received from child:', hasBeenSelected);
